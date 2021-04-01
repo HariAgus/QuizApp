@@ -4,15 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_home"
+    android:padding="40dp"
     tools:context=".ui.main.MainActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/image_view_quiz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="140dp"
+        android:src="@drawable/ic_quiz_apps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="4dp"
+        android:text="@string/desc_app"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/image_view_quiz" />
+    
+    <Button
+        android:id="@+id/btn_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/play"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:background="@drawable/bg_btn_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="4dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
