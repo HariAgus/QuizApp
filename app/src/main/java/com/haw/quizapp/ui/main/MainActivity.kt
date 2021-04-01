@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.haw.quizapp.R
 import com.haw.quizapp.databinding.ActivityMainBinding
+import com.haw.quizapp.ui.prepare.PrepareActivity
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun onClick() {
         mainBinding.btnPlay.setOnClickListener {
-
+            startActivity<PrepareActivity>()
         }
     }
 }
