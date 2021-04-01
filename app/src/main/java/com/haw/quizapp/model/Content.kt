@@ -9,5 +9,5 @@ data class Content(
     @SerializedName("body")
     val body: String,
     @SerializedName("image")
-    val image: String
+    val image: String?
 )
