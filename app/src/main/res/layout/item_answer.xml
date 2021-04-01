@@ -26,10 +26,28 @@
         tools:text="A" />
 
     <TextView
+        android:id="@+id/tv_answer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="16dp"
+        android:lineSpacingExtra="4dp"
         android:text="@string/default_text"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@id/iv_check_answer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_option"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/desc_app" />
+
+    <ImageView
+        android:id="@+id/iv_check_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_baseline_panorama_fish_eye_24"
+        app:layout_constraintBottom_toBottomOf="@id/tv_answer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_answer"
+        app:tint="@color/colorPrimary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
