@@ -39,8 +39,9 @@ class ContentAdapter : RecyclerView.Adapter<ContentAdapter.ViewHolder>() {
             val answerAdapter = AnswerAdapter()
 
             binding.tvQuiz.text = content.body
+            binding.ivQuiz.visibility = View.GONE
 
-            if (content.image != null) {
+            if (content.image != null && content.image.isNotEmpty()) {
                 binding.ivQuiz.visibility = View.VISIBLE
                 Glide.with(itemView)
                     .load(content.image)

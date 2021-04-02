@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:inputType="text"
-        android:text="@string/enter_a_nickname"
+        android:hint="@string/enter_a_nickname"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@id/btn_start" />
 

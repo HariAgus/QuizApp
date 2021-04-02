@@ -20,12 +20,28 @@ class ScoreActivity : AppCompatActivity() {
         binding = ActivityScoreBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Get Data
+        if (intent != null) {
+            val score = intent.getIntExtra(EXTRA_SCORE, 0)
+            val nickname = intent.getStringExtra(EXTRA_NAME)
+
+            binding.tvNickname.text = nickname
+            binding.tvScore.text = score.toString()
+        }
+
         onClick()
     }
 
     private fun onClick() {
         binding.btnScoreDone.setOnClickListener {
             startActivity<MainActivity>()
+            finishAffinity()
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        startActivity<MainActivity>()
+        finishAffinity()
     }
 }
