@@ -1,15 +1,22 @@
 package com.haw.quizapp.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Answer(
-    @SerializedName("answer")
-    val answer: String,
-    @SerializedName("correct_answer")
-    val correctAnswer: Boolean,
-    @SerializedName("is_click")
-    val isClick: Boolean,
-    @SerializedName("option")
-    val option: String
-)
+
+    @field:SerializedName("answer")
+    val answer: String? = null,
+
+    @field:SerializedName("correct_answer")
+    val correctAnswer: Boolean? = null,
+
+    @field:SerializedName("is_click")
+    var isClick: Boolean? = null,
+
+    @field:SerializedName("option")
+    val option: String? = null
+) : Parcelable

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.haw.quizapp.R
 import com.haw.quizapp.databinding.ActivityPrepareBinding
+import com.haw.quizapp.ui.content.ContentActivity
+import org.jetbrains.anko.startActivity
 
 class PrepareActivity : AppCompatActivity() {
 
@@ -21,7 +23,9 @@ class PrepareActivity : AppCompatActivity() {
         binding.btnStart.setOnClickListener {
             val nickname = binding.etNickname.text.toString()
             if (checkValidation(nickname)) {
-
+                startActivity<ContentActivity>(
+                    ContentActivity.EXTRA_NICKNAME to nickname
+                )
             }
         }
     }
