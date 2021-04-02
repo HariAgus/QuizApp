@@ -41,11 +41,7 @@ class AnswerAdapter : RecyclerView.Adapter<AnswerAdapter.ViewHolder>() {
 
             itemView.setOnClickListener {
                 for (i in 0 until answers.size) {
-                    if (i == adapterPosition) {
-                        answers[i].isClick = true
-                    } else {
-                        answers[i].isClick = true
-                    }
+                    answers[i].isClick = i == adapterPosition
                 }
                 notifyDataSetChanged()
             }
