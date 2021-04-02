@@ -12,7 +12,7 @@ class AnswerAdapter : RecyclerView.Adapter<AnswerAdapter.ViewHolder>() {
     private var answers = mutableListOf<Answer>()
 
     fun setData(answer: MutableList<Answer>) {
-        this.answers = answers
+        this.answers = answer
         notifyDataSetChanged()
     }
 

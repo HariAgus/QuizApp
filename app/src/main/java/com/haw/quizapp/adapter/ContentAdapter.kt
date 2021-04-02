@@ -18,6 +18,10 @@ class ContentAdapter : RecyclerView.Adapter<ContentAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
+    fun getResults(): MutableList<Content> {
+        return contents
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemContentBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)

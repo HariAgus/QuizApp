@@ -8,6 +8,11 @@ import org.jetbrains.anko.startActivity
 
 class ScoreActivity : AppCompatActivity() {
 
+    companion object {
+        const val EXTRA_NAME = "extra_name"
+        const val EXTRA_SCORE = "extra_score"
+    }
+
     private lateinit var binding: ActivityScoreBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
