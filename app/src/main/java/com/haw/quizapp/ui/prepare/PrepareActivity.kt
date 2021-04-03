@@ -21,7 +21,8 @@ class PrepareActivity : AppCompatActivity() {
 
     private fun onClick() {
         binding.btnStart.setOnClickListener {
-            val nickname = binding.etNickname.text.toString()
+            val nickname = binding.etNickname.text.toString().trim()
+
             if (checkValidation(nickname)) {
                 startActivity<ContentActivity>(
                     ContentActivity.EXTRA_NICKNAME to nickname
