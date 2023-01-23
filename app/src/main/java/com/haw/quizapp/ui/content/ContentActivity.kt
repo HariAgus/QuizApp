@@ -13,7 +13,7 @@ import com.haw.quizapp.model.Content
 import com.haw.quizapp.repository.Repository
 import com.haw.quizapp.ui.main.MainActivity
 import com.haw.quizapp.ui.score.ScoreActivity
-import org.jetbrains.anko.startActivity
+import com.haw.quizapp.utils.startActivity
 
 class ContentActivity : AppCompatActivity() {
 

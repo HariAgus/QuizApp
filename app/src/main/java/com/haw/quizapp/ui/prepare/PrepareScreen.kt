@@ -81,5 +81,5 @@ fun Prepare(
 @Preview(showBackground = true)
 @Composable
 fun PrepareScreenPreview() {
-
+    PrepareScreen()
 }

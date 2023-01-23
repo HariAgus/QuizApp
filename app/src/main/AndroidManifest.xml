@@ -11,11 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuizApp">
-        <activity android:name=".ui.score.ScoreActivity"></activity>
+        <activity android:name=".ui.score.ScoreActivity" />
         <activity android:name=".ui.content.ContentActivity" />
         <activity android:name=".ui.prepare.PrepareActivity" />
         <activity android:name=".ui.splash.SplashActivity" />
-        <activity android:name=".ui.main.MainActivity">
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

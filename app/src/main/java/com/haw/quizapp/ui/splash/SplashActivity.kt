@@ -1,12 +1,12 @@
 package com.haw.quizapp.ui.splash
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
 import com.haw.quizapp.R
 import com.haw.quizapp.ui.main.MainActivity
-import org.jetbrains.anko.startActivity
+import com.haw.quizapp.utils.startActivity
 
 class SplashActivity : AppCompatActivity() {
 

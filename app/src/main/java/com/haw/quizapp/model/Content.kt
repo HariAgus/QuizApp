@@ -16,4 +16,4 @@ data class Content(
 
     @field:SerializedName("body")
     val body: String? = null
-) : Parcelable
+): Parcelable
