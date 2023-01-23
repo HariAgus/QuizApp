@@ -1,11 +1,10 @@
-package com.haw.quizapp.ui.main
+package com.haw.quizapp.ui.screen.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.haw.quizapp.R
+import androidx.appcompat.app.AppCompatActivity
 import com.haw.quizapp.databinding.ActivityMainBinding
-import com.haw.quizapp.ui.prepare.PrepareActivity
-import org.jetbrains.anko.startActivity
+import com.haw.quizapp.ui.screen.prepare.PrepareActivity
+import com.haw.quizapp.utils.startActivity
 
 class MainActivity : AppCompatActivity() {
 

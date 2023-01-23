@@ -1,4 +1,4 @@
-package com.haw.quizapp.ui.content
+package com.haw.quizapp.ui.screen.content
 
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -11,9 +11,9 @@ import com.haw.quizapp.adapter.ContentAdapter
 import com.haw.quizapp.databinding.ActivityContentBinding
 import com.haw.quizapp.model.Content
 import com.haw.quizapp.repository.Repository
-import com.haw.quizapp.ui.main.MainActivity
-import com.haw.quizapp.ui.score.ScoreActivity
-import org.jetbrains.anko.startActivity
+import com.haw.quizapp.ui.screen.main.MainActivity
+import com.haw.quizapp.ui.screen.score.ScoreActivity
+import com.haw.quizapp.utils.startActivity
 
 class ContentActivity : AppCompatActivity() {
 

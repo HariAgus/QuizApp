@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_home"
     android:padding="40dp"
-    tools:context=".ui.main.MainActivity">
+    tools:context=".ui.screen.main.MainActivity">
 
     <ImageView
         android:id="@+id/image_view_quiz"

@@ -1,11 +1,11 @@
-package com.haw.quizapp.ui.prepare
+package com.haw.quizapp.ui.screen.prepare
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.haw.quizapp.R
 import com.haw.quizapp.databinding.ActivityPrepareBinding
-import com.haw.quizapp.ui.content.ContentActivity
-import org.jetbrains.anko.startActivity
+import com.haw.quizapp.ui.screen.content.ContentActivity
+import com.haw.quizapp.utils.startActivity
 
 class PrepareActivity : AppCompatActivity() {
 
