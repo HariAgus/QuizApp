@@ -1,4 +1,4 @@
-package com.haw.quizapp.ui.main
+package com.haw.quizapp.ui.screen.main
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

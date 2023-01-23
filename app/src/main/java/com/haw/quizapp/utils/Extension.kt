@@ -5,6 +5,13 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.material.RadioButtonColors
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Stable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.ui.graphics.Color
 import java.io.Serializable
 
 inline fun <reified T : Activity> Context.startActivity(vararg params: Pair<String, Any?>) {
@@ -27,5 +34,23 @@ fun fillIntentArguments(intent: Intent, params: Array<out Pair<String, Any?>>) {
             else -> throw Exception("Intent extra ${it.first} has wrong type ${value.javaClass.name}")
         }
         return@forEach
+    }
+}
+
+@Stable
+class DefaultRadioButtonColors(
+    private val selectedColor: Color,
+    private val unselectedColor: Color,
+    private val disabledColor: Color
+) : RadioButtonColors {
+    @Composable
+    override fun radioColor(enabled: Boolean, selected: Boolean): State<Color> {
+        val target = when {
+            !enabled -> disabledColor
+            !selected -> unselectedColor
+            else -> selectedColor
+        }
+
+        return if (enabled) animateColorAsState(target) else rememberUpdatedState(target)
     }
 }

@@ -1,9 +1,9 @@
-package com.haw.quizapp.ui.score
+package com.haw.quizapp.ui.screen.score
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.haw.quizapp.databinding.ActivityScoreBinding
-import com.haw.quizapp.ui.main.MainActivity
+import com.haw.quizapp.ui.screen.main.MainActivity
 import com.haw.quizapp.utils.startActivity
 
 class ScoreActivity : AppCompatActivity() {

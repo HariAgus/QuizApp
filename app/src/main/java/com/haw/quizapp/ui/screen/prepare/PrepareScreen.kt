@@ -1,4 +1,4 @@
-package com.haw.quizapp.ui.prepare
+package com.haw.quizapp.ui.screen.prepare
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image

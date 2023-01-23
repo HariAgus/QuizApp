@@ -1,4 +1,4 @@
-package com.haw.quizapp.ui.score
+package com.haw.quizapp.ui.screen.score
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*

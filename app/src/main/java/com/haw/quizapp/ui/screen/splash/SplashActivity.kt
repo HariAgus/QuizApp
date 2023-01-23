@@ -1,11 +1,11 @@
-package com.haw.quizapp.ui.splash
+package com.haw.quizapp.ui.screen.splash
 
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.haw.quizapp.R
-import com.haw.quizapp.ui.main.MainActivity
+import com.haw.quizapp.ui.screen.main.MainActivity
 import com.haw.quizapp.utils.startActivity
 
 class SplashActivity : AppCompatActivity() {

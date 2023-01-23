@@ -1,4 +1,4 @@
-package com.haw.quizapp.ui.splash
+package com.haw.quizapp.ui.screen.splash
 
 import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.core.Animatable
