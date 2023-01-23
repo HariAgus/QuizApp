@@ -1,9 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
     id 'org.jetbrains.kotlin.android'
     id 'kotlinx-serialization'
+    id 'kotlin-parcelize'
 }
 
 android {
