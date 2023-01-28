@@ -49,7 +49,6 @@ class ContentActivity : AppCompatActivity() {
         } else {
             //Get data from Repository
             val contents = Repository.getDataContents(this)
-            //Show Data
             showDataContents(contents)
         }
 
@@ -62,12 +61,12 @@ class ContentActivity : AppCompatActivity() {
             AlertDialog.Builder(this)
                 .setTitle(getString(R.string.are_you_sure))
                 .setMessage(getString(R.string.message_exit))
-                .setPositiveButton(getString(R.string.yes)){ dialog, _ ->
+                .setPositiveButton(getString(R.string.yes)) { dialog, _ ->
                     dialog.dismiss()
                     startActivity<MainActivity>()
                     finishAffinity()
                 }
-                .setNegativeButton(getString(R.string.no)){ dialog, _ ->
+                .setNegativeButton(getString(R.string.no)) { dialog, _ ->
                     dialog.dismiss()
                 }
                 .show()
@@ -80,7 +79,7 @@ class ContentActivity : AppCompatActivity() {
                 AlertDialog.Builder(this)
                     .setTitle(getString(R.string.are_you_sure))
                     .setMessage(getString(R.string.message_input_data))
-                    .setPositiveButton(getString(R.string.yes)){ dialog, _ ->
+                    .setPositiveButton(getString(R.string.yes)) { dialog, _ ->
                         val contents = contentAdapter.getResults()
                         val totalQuiz = contents.size
                         var totalCorrectAnswer = 0

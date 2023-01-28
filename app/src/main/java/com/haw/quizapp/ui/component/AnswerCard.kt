@@ -25,7 +25,8 @@ import com.haw.quizapp.utils.DefaultRadioButtonColors
 @Composable
 fun AnswerCard(
     modifier: Modifier = Modifier,
-    answer: Answer
+    answer: List<Answer>,
+    index: Int = 0
 ) {
     Card(
         modifier = modifier.fillMaxWidth(),
@@ -46,7 +47,7 @@ fun AnswerCard(
                 Text(
                     modifier = Modifier.padding(8.dp),
                     fontSize = 16.sp,
-                    text = answer.option.toString(),
+                    text = answer[index].option.toString(),
                     color = Color.White,
                     fontWeight = FontWeight.Bold
                 )
@@ -57,7 +58,7 @@ fun AnswerCard(
                     .align(Alignment.CenterVertically)
                     .weight(1F)
                     .padding(PaddingValues(horizontal = 12.dp)),
-                text = answer.answer.toString(), color = Color.Black,
+                text = answer[index].answer.toString(), color = Color.Black,
                 fontSize = 12.sp,
                 fontFamily = FontFamily.SansSerif,
                 lineHeight = 18.sp
@@ -80,11 +81,11 @@ fun AnswerCard(
 @Preview
 @Composable
 fun AnswerCardPreview() {
-    AnswerCard(
+    /*AnswerCard(
         answer = Answer(
             answer = "First I learn design pattern MVVM, this is a repository wallpapers app which can be used directly for setting the background wallaper on our Smartphone",
             correctAnswer = true,
             option = "A"
         )
-    )
+    )*/
 }

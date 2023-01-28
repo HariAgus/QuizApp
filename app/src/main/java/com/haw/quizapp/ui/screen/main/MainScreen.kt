@@ -38,6 +38,7 @@ fun Main(
         modifier = modifier.background(Color.White)
     ) {
         Image(
+            modifier = Modifier.fillMaxSize(),
             painter = painterResource(id = R.drawable.bg_home),
             contentDescription = "Image Background"
         )
@@ -45,7 +46,7 @@ fun Main(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = 140.dp, bottom = 32.dp),
+                .padding(top = 180.dp, bottom = 32.dp),
         ) {
             Column(
                 modifier = Modifier.weight(1f)

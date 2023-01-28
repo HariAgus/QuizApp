@@ -7,19 +7,18 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import com.haw.quizapp.model.Answer
 import com.haw.quizapp.model.Content
+import com.haw.quizapp.model.Contents
 import com.haw.quizapp.ui.component.ItemContent
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ListContent(
     modifier: Modifier = Modifier,
-    contents: List<Content>
+    contents: List<Contents>
 ) {
-    var size by remember { mutableStateOf(IntSize.Zero) }
-
     Box(
         modifier = modifier.fillMaxSize(),
     ) {
@@ -32,7 +31,8 @@ fun ListContent(
                 itemsIndexed(contents) { index, content ->
                     ItemContent(
                         modifier = Modifier.fillParentMaxSize(),
-                        content = content, indexPosition = index
+                        contents = content,
+                        indexPosition = index
                     )
                 }
             }
@@ -43,10 +43,12 @@ fun ListContent(
 @Preview(showBackground = true)
 @Composable
 fun ListContentPreview() {
-    val contents = ArrayList<Content>()
-    contents.add(Content(body = "What .. your name?"))
-    contents.add(Content(body = "What .. your name?"))
-    contents.add(Content(body = "What .. your name?"))
+    val contents = ArrayList<Contents>()
+    val contentList = ArrayList<Content>().apply {
+        add(Content(body = "... Help you?"))
+    }
+    val answer = ArrayList<Answer>()
+    contents.add(Contents(contents = contentList))
 
     ListContent(contents = contents)
 }

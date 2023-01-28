@@ -14,9 +14,8 @@
         <activity android:name=".ui.screen.score.ScoreActivity" />
         <activity android:name=".ui.screen.content.ContentActivity" />
         <activity android:name=".ui.screen.prepare.PrepareActivity" />
-        <activity android:name=".ui.screen.splash.SplashActivity" />
         <activity
-            android:name=".ui.screen.main.MainActivity"
+            android:name=".ui.screen.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.screen.main.MainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
