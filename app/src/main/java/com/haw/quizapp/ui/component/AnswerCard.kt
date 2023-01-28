@@ -54,6 +54,7 @@ fun AnswerCard(
 
             Text(
                 modifier = Modifier
+                    .align(Alignment.CenterVertically)
                     .weight(1F)
                     .padding(PaddingValues(horizontal = 12.dp)),
                 text = answer.answer.toString(), color = Color.Black,

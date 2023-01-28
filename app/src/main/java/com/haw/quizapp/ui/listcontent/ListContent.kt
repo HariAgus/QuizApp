@@ -1,34 +1,52 @@
 package com.haw.quizapp.ui.listcontent
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import android.annotation.SuppressLint
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.haw.quizapp.model.Contents
+import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.dp
+import com.haw.quizapp.model.Content
+import com.haw.quizapp.ui.component.ItemContent
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun ListContent(
     modifier: Modifier = Modifier,
-    contents: List<Contents>
+    contents: List<Content>
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-    ) {
-        LazyRow(
-        ) {
-            items(contents) { content ->
+    var size by remember { mutableStateOf(IntSize.Zero) }
 
+    Box(
+        modifier = modifier.fillMaxSize(),
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            LazyRow(
+                modifier = Modifier.padding(8.dp)
+            ) {
+                itemsIndexed(contents) { index, content ->
+                    ItemContent(
+                        modifier = Modifier.fillParentMaxSize(),
+                        content = content, indexPosition = index
+                    )
+                }
             }
         }
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun ListContentPreview() {
-    ListContent(contents = emptyList())
+    val contents = ArrayList<Content>()
+    contents.add(Content(body = "What .. your name?"))
+    contents.add(Content(body = "What .. your name?"))
+    contents.add(Content(body = "What .. your name?"))
+
+    ListContent(contents = contents)
 }
