@@ -12,8 +12,8 @@ data class Content(
     val image: String? = null,
 
     @field:SerializedName("answers")
-    val answers: List<Answer>? = null,
+    val answers: List<Answer> = emptyList(),
 
     @field:SerializedName("body")
     val body: String? = null
-): Parcelable
+) : Parcelable

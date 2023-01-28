@@ -6,19 +6,19 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.haw.quizapp.R
-import com.haw.quizapp.model.Answer
-import com.haw.quizapp.model.Content
+import com.haw.quizapp.model.Contents
 
 @Composable
 fun ItemContent(
     modifier: Modifier = Modifier,
-    content: Content,
+    contents: Contents,
     indexPosition: Int = 0
 ) {
     Column(
@@ -28,7 +28,8 @@ fun ItemContent(
     ) {
         Text(
             modifier = Modifier.fillMaxWidth(),
-            text = content.body.toString(), color = Color.Black,
+            text = contents.contents?.get(indexPosition)?.body.toString(),
+            color = Color.Black,
             fontSize = 12.sp,
             fontFamily = FontFamily.SansSerif,
             lineHeight = 18.sp
@@ -38,27 +39,31 @@ fun ItemContent(
 
         Image(
             modifier = Modifier
-                .height(200.dp)
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .height(200.dp),
             painter = painterResource(id = R.drawable.ic_launcher_background),
+            contentScale = ContentScale.Inside,
             contentDescription = "Image Answer"
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        AnswerCard(
-            modifier = Modifier.fillMaxWidth(),
-            answer = content.answers?.get(indexPosition) ?: Answer()
-        )
+        contents.contents?.get(indexPosition)?.let {
+            AnswerCard(
+                modifier = Modifier.fillMaxWidth(),
+                answer = it.answers
+            )
+        }
     }
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun ItemContentPreview() {
-    ItemContent(
+    /*ItemContent(
         content = Content(
             body = "First I learn design pattern MVVM, this is a repository wallpapers app which can be used directly for setting the background wallaper on our Smartphone"
         )
-    )
+    )*/
 }

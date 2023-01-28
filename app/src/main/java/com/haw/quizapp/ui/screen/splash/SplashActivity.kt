@@ -1,18 +1,22 @@
 package com.haw.quizapp.ui.screen.splash
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.haw.quizapp.R
 import com.haw.quizapp.ui.screen.main.MainActivity
 import com.haw.quizapp.utils.startActivity
 
+@SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+        setContent {
+            SplashScreen()
+        }
 
         delayAndGoToMain()
     }
@@ -20,6 +24,7 @@ class SplashActivity : AppCompatActivity() {
     private fun delayAndGoToMain() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity<MainActivity>()
-        }, 1200)
+            finishAffinity()
+        }, 1600)
     }
 }
