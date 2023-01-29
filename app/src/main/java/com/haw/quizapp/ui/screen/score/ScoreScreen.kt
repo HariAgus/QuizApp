@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -25,9 +26,13 @@ import com.haw.quizapp.theme.ColorPrimary
 
 @Composable
 fun ScoreScreen(
+    nickname: String,
+    score: String,
     onClickDone: () -> Unit
 ) {
     Score(
+        nickname = nickname,
+        score = score,
         onClickDone = onClickDone
     )
 }
@@ -35,6 +40,8 @@ fun ScoreScreen(
 @Composable
 fun Score(
     modifier: Modifier = Modifier,
+    nickname: String,
+    score: String,
     onClickDone: () -> Unit
 ) {
     Scaffold(
@@ -46,9 +53,12 @@ fun Score(
         }
     ) {
         Column(
-            modifier = Modifier.padding(it)
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(it)
         ) {
             Image(
+                modifier = Modifier.fillMaxWidth(),
                 painter = painterResource(id = R.drawable.bg_test_result),
                 contentDescription = "Background Score"
             )
@@ -59,7 +69,17 @@ fun Score(
                     .offset(y = (-90).dp)
                     .align(Alignment.CenterHorizontally)
             ) {
+                Text(
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                    text = nickname,
+                    fontSize = 26.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White,
+                    fontFamily = FontFamily.SansSerif
+                )
+
                 Image(
+                    modifier = Modifier.padding(top = 12.dp),
                     painter = painterResource(id = R.drawable.image_test_result),
                     contentDescription = "Background Score"
                 )
@@ -82,7 +102,7 @@ fun Score(
                 ) {
                     Text(
                         modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-                        text = "0",
+                        text = score,
                         color = Color.White,
                         fontSize = 40.sp,
                         fontWeight = FontWeight.Bold
@@ -122,5 +142,5 @@ fun ButtonFloatingDone(
 @Preview
 @Composable
 fun ScoreScreenPreview() {
-    ScoreScreen(onClickDone = {})
+    ScoreScreen(nickname = "Hari Agus", score = "100", onClickDone = {})
 }

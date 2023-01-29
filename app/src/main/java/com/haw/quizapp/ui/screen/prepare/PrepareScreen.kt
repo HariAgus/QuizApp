@@ -25,10 +25,14 @@ import com.haw.quizapp.theme.ColorPrimary
 @Composable
 fun PrepareScreen(
     nickname: String,
+    onValueChange: (String) -> Unit = {},
     onClickStart: () -> Unit
 ) {
     Prepare(
         nickname = nickname,
+        onValueChange = {
+            onValueChange.invoke(it)
+        },
         onClickStart = onClickStart
     )
 }
@@ -75,6 +79,15 @@ fun Prepare(
                         .fillMaxWidth()
                         .padding(PaddingValues(horizontal = 16.dp)),
                     value = nickname,
+                    placeholder = {
+                        Text(
+                            modifier = Modifier.fillMaxWidth(),
+                            style = LocalTextStyle.current.copy(textAlign = TextAlign.Center),
+                            text = stringResource(id = R.string.enter_a_nickname),
+                            color = Color.Black,
+                            fontFamily = FontFamily.SansSerif,
+                        )
+                    },
                     colors = TextFieldDefaults.textFieldColors(
                         backgroundColor = Color.Transparent
                     ),
