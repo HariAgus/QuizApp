@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 data class Content(
 
     @field:SerializedName("image")
-    val image: String? = null,
+    var image: String? = null,
 
     @field:SerializedName("answers")
     val answers: List<Answer> = emptyList(),

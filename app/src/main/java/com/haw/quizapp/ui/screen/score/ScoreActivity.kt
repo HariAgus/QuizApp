@@ -1,42 +1,36 @@
 package com.haw.quizapp.ui.screen.score
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.haw.quizapp.databinding.ActivityScoreBinding
 import com.haw.quizapp.ui.screen.main.MainActivity
 import com.haw.quizapp.utils.startActivity
 
 class ScoreActivity : AppCompatActivity() {
 
-    companion object {
-        const val EXTRA_NAME = "extra_name"
-        const val EXTRA_SCORE = "extra_score"
-    }
-
-    private lateinit var binding: ActivityScoreBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityScoreBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContent {
+            //Get Data
+            if (intent != null) {
+                val score = intent.getIntExtra(EXTRA_SCORE, 0)
+                val nickname = intent.getStringExtra(EXTRA_NAME)
 
-        //Get Data
-        if (intent != null) {
-            val score = intent.getIntExtra(EXTRA_SCORE, 0)
-            val nickname = intent.getStringExtra(EXTRA_NAME)
-
-            binding.tvNickname.text = nickname
-            binding.tvScore.text = score.toString()
+                ScoreScreen(
+                    nickname = nickname.toString(),
+                    score = score.toString(),
+                    onClickDone = {
+                        onClickDone()
+                    }
+                )
+            }
         }
 
-        onClick()
     }
 
-    private fun onClick() {
-        binding.btnScoreDone.setOnClickListener {
-            startActivity<MainActivity>()
-            finishAffinity()
-        }
+    private fun onClickDone() {
+        startActivity<MainActivity>()
+        finishAffinity()
     }
 
     override fun onBackPressed() {
@@ -44,4 +38,10 @@ class ScoreActivity : AppCompatActivity() {
         startActivity<MainActivity>()
         finishAffinity()
     }
+
+    companion object {
+        const val EXTRA_NAME = "extra_name"
+        const val EXTRA_SCORE = "extra_score"
+    }
+
 }

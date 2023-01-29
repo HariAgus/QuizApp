@@ -1,6 +1,7 @@
 package com.haw.quizapp.ui.screen.content
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +12,7 @@ import com.haw.quizapp.adapter.ContentAdapter
 import com.haw.quizapp.databinding.ActivityContentBinding
 import com.haw.quizapp.model.Content
 import com.haw.quizapp.repository.Repository
+import com.haw.quizapp.ui.listcontent.ListContent
 import com.haw.quizapp.ui.screen.main.MainActivity
 import com.haw.quizapp.ui.screen.score.ScoreActivity
 import com.haw.quizapp.utils.startActivity
@@ -31,15 +33,19 @@ class ContentActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityContentBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        /*binding = ActivityContentBinding.inflate(layoutInflater)
+        setContentView(binding.root)*/
+        val contents = Repository.getDataContents(this)
+        setContent {
+            ListContent(content = contents, onClickCloseToolbar = { onClickClose() })
+        }
 
         //Init
         contentAdapter = ContentAdapter()
 
         //Get Data
-        if (intent != null) {
-            nickname = intent.getStringExtra(EXTRA_NICKNAME)
+        /*if (intent != null) {
+            nickname = intent.getStringExtra(EXTRA_NICKNAME) ?: "User"
         }
 
         if (savedInstanceState != null) {
@@ -50,28 +56,28 @@ class ContentActivity : AppCompatActivity() {
             //Get data from Repository
             val contents = Repository.getDataContents(this)
             showDataContents(contents)
-        }
+        }*/
 
         //On Click
-        onClick()
+        // onClick()
     }
 
-    private fun onClick() {
-        binding.btnBack.setOnClickListener {
-            AlertDialog.Builder(this)
-                .setTitle(getString(R.string.are_you_sure))
-                .setMessage(getString(R.string.message_exit))
-                .setPositiveButton(getString(R.string.yes)) { dialog, _ ->
-                    dialog.dismiss()
-                    startActivity<MainActivity>()
-                    finishAffinity()
-                }
-                .setNegativeButton(getString(R.string.no)) { dialog, _ ->
-                    dialog.dismiss()
-                }
-                .show()
-        }
+    private fun onClickClose() {
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.are_you_sure))
+            .setMessage(getString(R.string.message_exit))
+            .setPositiveButton(getString(R.string.yes)) { dialog, _ ->
+                dialog.dismiss()
+                startActivity<MainActivity>()
+                finishAffinity()
+            }
+            .setNegativeButton(getString(R.string.no)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
+    }
 
+    private fun onClickNextQuiz() {
         binding.btnNextContent.setOnClickListener {
             if (currentPosition < dataSize - 1) {
                 binding.rvContent.smoothScrollToPosition(currentPosition + 1)
@@ -106,10 +112,10 @@ class ContentActivity : AppCompatActivity() {
                     .show()
             }
         }
+    }
 
-        binding.btnPrevContent.setOnClickListener {
-            binding.rvContent.smoothScrollToPosition(currentPosition - 1)
-        }
+    private fun onClickPrevQuis() {
+
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

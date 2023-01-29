@@ -18,7 +18,7 @@ object Repository {
         } catch (e: IOException) {
             return null
         }
-        val contents =  Gson().fromJson(json, Contents::class.java)
+        val contents = Gson().fromJson(json, Contents::class.java)
         return contents.contents
     }
 

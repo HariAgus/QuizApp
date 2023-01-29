@@ -41,7 +41,7 @@ class ContentAdapter : RecyclerView.Adapter<ContentAdapter.ViewHolder>() {
             binding.tvQuiz.text = content.body
             binding.ivQuiz.visibility = View.GONE
 
-            if (content.image != null && content.image.isNotEmpty()) {
+            if (content.image != null) {
                 binding.ivQuiz.visibility = View.VISIBLE
                 Glide.with(itemView)
                     .load(content.image)
@@ -51,10 +51,8 @@ class ContentAdapter : RecyclerView.Adapter<ContentAdapter.ViewHolder>() {
                 binding.ivQuiz.visibility = View.GONE
             }
 
-            if (content.answers != null) {
-                answerAdapter.setData(content.answers as MutableList<Answer>)
-                binding.rvAnswerQuiz.adapter = answerAdapter
-            }
+            answerAdapter.setData(content.answers as MutableList<Answer>)
+            binding.rvAnswerQuiz.adapter = answerAdapter
         }
     }
 
