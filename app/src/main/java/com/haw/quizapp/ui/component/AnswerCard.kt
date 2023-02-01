@@ -32,7 +32,8 @@ fun AnswerCard(
         modifier = modifier.fillMaxWidth(),
         border = BorderStroke(
             width = 1.dp, color = ColorPrimary
-        )
+        ),
+        shape = RoundedCornerShape(12.dp)
     ) {
         Row(
             modifier = Modifier
